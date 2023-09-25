@@ -1,0 +1,94 @@
+NameSpaces
+PODS
+ReplicaSet
+ - No of Replica == No of Pods
+DaemonSet
+ - No of W.nodes == No of Pods
+Deployment
+
+==========================================
+
+POD => POD
+RepicaSet => ReplicaSet + POD
+DaemonSet => DaemonSet + POD
+Deployment => Deployment + ReplicaSet + POD
+
+==========================================
+
+v 1.0.1
+v 1.0.2
+
+Deployment Strategies:
+ - ReCreate
+ - Rolling Update
+ - Blue Green Deployment
+ - Canary Deployment
+
+Rolling Update:
+
+3 v1 Pods 
+3 v1 Pods + 1 v2 Pod
+2 v1 Pods + 2 v2 Pods
+1 v1 Pod + 3 v2 Pods
+3 v2 Pods
+
+Blue Green Deployment: 
+
+10 v1 Pods 
+10 v1 Pods + 10 v2 Pods
+10 v2 Pods
+
+Canary Deployment:
+
+10 v1 Pods 
+10 v1 Pods + 10 v2 Pods
+
+
+
+
+
+
+===============================================================
+Imperative Way - CLI 
+
+kubectl <Operation_command>  <Type_command>  <Name_command>
+
+- Operations:- Get, Create, Delete, Describe, Logs, etc
+- Type:- Pods, Deployments, Jobs, Namespace, etc
+- Name:- Seach-pod, Cart-Deployment, Ui-Service, mail-jobs, etc
+
+eg:- kubectl get pod test-pod
+
+
+Declarative Way - yaml file
+
+=========================================
+
+NameSpaces:
+
+Pods - Atomic unit in kubernetes
+ - pod
+ - pod in a namespace
+ - multiple container in a pod
+ - troubleshooting of a pod
+ - Request & limit of a pod
+
+ram => 4gb => 256mb request / 512mb limit
+cpu => 4 Core => 1000m == 1 Core, 100m 10% of a Core
+
+ReplicaSet 
+ - ReplicaSet => ReplicaSet + Pods
+ - No of replica == No of Pods
+DaemonSet
+ - DaemonSet => DaemonSet + Pods
+ - No of W.node == No of Pods
+Deployment
+ - Rolling Update (Default k8s Deployment)
+ - Deployment => Deployment + ReplicaSet + Pods
+
+=========================================
+
+TASK: https://learnk8s.io/troubleshooting-deployments
+TASK: Using kops increase & Decrease the w.nodes to see the DaemonSet & ReplicaSet Behavior
+TASK: JOB
+TASK: CronJob
